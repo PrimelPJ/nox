@@ -1,0 +1,28 @@
+# String operations
+# Demonstrates: string concatenation, booleans, nil, mixed-type print
+
+fn greet(name) {
+    return "Hello, " + name + "!"
+}
+
+print(greet("world"))
+print(greet("Nox"))
+
+# string + number auto-casts
+let score = 42
+print("Your score: " + score)
+
+# boolean logic
+let x = 10
+let y = 3
+
+print(x > y)          # true
+print(x == y)         # false
+print(x > 5 and y < 5)  # true
+print(x < 0 or y == 3)  # true
+print(not false)         # true
+
+# nil
+let nothing = nil
+print(nothing)           # nil
+print(nothing == nil)    # true

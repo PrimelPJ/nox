@@ -1,0 +1,39 @@
+# Higher-order functions
+# Functions that accept other functions as arguments, and
+# anonymous function expressions passed inline.
+#
+# Demonstrates: first-class functions, fn expressions, apply patterns
+
+fn apply_n(n, func) {
+    let i = 0
+    while i < n {
+        print(func(i))
+        i = i + 1
+    }
+}
+
+fn square(x) { return x * x }
+fn double(x) { return x * 2 }
+
+print("--- squares ---")
+apply_n(6, square)
+
+print("--- doubles ---")
+apply_n(6, double)
+
+print("--- cubes (anonymous fn) ---")
+apply_n(5, fn(x) { return x * x * x })
+
+# Curried adder: returns a function from a function
+fn make_adder(n) {
+    return fn(x) { return x + n }
+}
+
+let add10 = make_adder(10)
+let add25 = make_adder(25)
+
+print("--- add10 applied to 0..4 ---")
+apply_n(5, add10)
+
+print("--- add25 applied to 0..4 ---")
+apply_n(5, add25)

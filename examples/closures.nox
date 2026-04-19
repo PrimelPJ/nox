@@ -1,0 +1,31 @@
+# Closures
+# Each call to make_counter() creates an independent counter that
+# remembers its own state — classic closure behaviour.
+#
+# Demonstrates: closures, higher-order functions, mutable captured state
+
+fn make_counter(start) {
+    let count = start
+
+    fn tick() {
+        count = count + 1
+        return count
+    }
+
+    return tick
+}
+
+let c1 = make_counter(0)
+let c2 = make_counter(100)
+
+print("counter 1:")
+print(c1())   # 1
+print(c1())   # 2
+print(c1())   # 3
+
+print("counter 2 (independent):")
+print(c2())   # 101
+print(c2())   # 102
+
+print("counter 1 resumes:")
+print(c1())   # 4  — unaffected by c2
