@@ -62,7 +62,7 @@ Source text passes through three stages before anything runs:
 source text
     │
     ▼
-┌─────────┐    tokens     ┌─────────┐     AST      ┌─────────────┐
+┌─────────┐    tokens     ┌─────────┐     AST       ┌─────────────┐
 │  Lexer  │ ────────────► │ Parser  │ ────────────► │ Interpreter │ → output
 └─────────┘               └─────────┘               └─────────────┘
 src/lexer.py           src/parser.py            src/interpreter.py
